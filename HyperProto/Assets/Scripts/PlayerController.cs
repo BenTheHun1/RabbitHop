@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             gameObject.transform.localPosition = new Vector3(0f, 1.4f, 0f);
-            gameObject.transform.localEulerAngles = new Vector3(0f, 0f, 45f);
+            gameObject.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
             gameObject.transform.localScale = new Vector3(1, 1, 1);
             gm.curHat = other.gameObject;
         }
