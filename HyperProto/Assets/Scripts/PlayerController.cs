@@ -33,5 +33,15 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.localScale = new Vector3(1, 1, 1);
             gm.curHat = other.gameObject;
         }
+        else if (other.gameObject.CompareTag("death"))
+        {
+            gm.EndGame();
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("speed"))
+        {
+            gm.SpeedUp();
+            Destroy(other.gameObject);
+        }
     }
 }
