@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public AudioSource jump;
+    public AudioSource land;
+    public AudioSource carrot;
     public GameManager gm;
+
+    public GameObject earL;
+    public GameObject earR;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (Menu.doHard)
+        {
+            earL.transform.localScale = new Vector3(0.4f, 1.1f, 0.4f);
+            earR.transform.localScale = new Vector3(0.4f, 1.1f, 0.4f);
+        }
     }
 
     // Update is called once per frame
@@ -24,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("hat"))
         {
+            land.Play();
             gameObject.transform.parent = other.gameObject.transform;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -40,8 +50,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("speed"))
         {
+            carrot.Play();
             gm.SpeedUp();
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.CompareTag("Finish"))
+        {
+            gm.Finish();
+        }
+
     }
 }

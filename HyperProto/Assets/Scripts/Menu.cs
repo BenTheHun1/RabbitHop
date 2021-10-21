@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    public static bool doHard;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +19,16 @@ public class Menu : MonoBehaviour
         
     }
 
-    public void StartGame()
+    public void StartGame(bool Hard)
     {
+        if (Hard)
+        {
+            doHard = Hard;
+        }
+        else
+        {
+            doHard = false;
+        }
         SceneManager.LoadScene("Main");
     }
 }

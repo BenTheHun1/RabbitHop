@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject pause;
     public GameObject dead;
+    public GameObject win;
     public GameObject SpeedIndicator;
     public Text SpeedUpTimeIndicator;
     public float force;
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour
     {
         pause.SetActive(false);
         dead.SetActive(false);
+        win.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -62,6 +65,7 @@ public class GameManager : MonoBehaviour
                 return;
             }
 
+            player.GetComponent<PlayerController>().jump.Play();
 
             player.GetComponent<Rigidbody>().useGravity = true;
             player.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * force, ForceMode.Impulse);
@@ -85,6 +89,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        gameObject.GetComponent<AudioSource>().Play();
         if (Time.timeScale == 1)
         {
             Time.timeScale = 0;
@@ -109,6 +114,12 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         pause.SetActive(false);
         SceneManager.LoadScene("Main");
+    }
+
+    public void Finish()
+    {
+        Time.timeScale = 0;
+        win.SetActive(true);
     }
 
     private bool IsPointerOverUIObject()
