@@ -17,7 +17,11 @@ public class AuraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
-        gm.magician.transform.position = (new Vector3(gm.magician.transform.position.x, gm.player.transform.position.y, 0));
+        if (!gm.dead.activeSelf)
+        {
+            gameObject.transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+            gm.magician.transform.position = (new Vector3(gm.magician.transform.position.x, gm.player.transform.position.y, 0));
+        }
+        
     }
 }

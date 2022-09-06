@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public GameObject SpeedIndicator;
     public Text SpeedUpTimeIndicator;
     public float force;
+    public port portType;
+    public GameObject jumpButton;
+    public enum port { pc, mobile }
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +33,10 @@ public class GameManager : MonoBehaviour
         pause.SetActive(false);
         dead.SetActive(false);
         win.SetActive(false);
-
+        if (portType != port.mobile)
+        {
+            jumpButton.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -57,14 +63,29 @@ public class GameManager : MonoBehaviour
         }
 
         //Debug.Log(player.transform.localPosition);
-        if (Input.GetKeyDown(KeyCode.Mouse0) && curHat != null)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && curHat != null && portType == port.pc)
         {
             if (EventSystem.current.IsPointerOverGameObject())
             {
-                print("return mouse");
+                print("jump ignored");
                 return;
             }
 
+            player.GetComponent<PlayerController>().jump.Play();
+
+            player.GetComponent<Rigidbody>().useGravity = true;
+            player.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * force, ForceMode.Impulse);
+            player.GetComponent<Rigidbody>().AddRelativeTorque(Vector3.back * force, ForceMode.Impulse);
+            player.transform.parent = null;
+            player.transform.localScale = new Vector3(1, 1, 1);
+            curHat = null;
+        }
+    }
+
+    public void Jump()
+    {
+        if (curHat != null)
+        {
             player.GetComponent<PlayerController>().jump.Play();
 
             player.GetComponent<Rigidbody>().useGravity = true;

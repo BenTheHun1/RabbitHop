@@ -27,7 +27,7 @@ public class Timer : MonoBehaviour
             currentTime += Time.deltaTime;
         }
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
-        txt.text = time.ToString(@"mm\:ss\:fff");
+        txt.text = time.ToString(@"mm\:ss\.ff");
     }
 
 }
