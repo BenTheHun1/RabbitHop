@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
         if (curHat != null)
         {
-            curHat.transform.Rotate(0.0f, 0.0f, (turnSpeed * speedup * Time.deltaTime), Space.Self);
+            curHat.transform.Rotate((turnSpeed * speedup * Time.deltaTime), 0f, 0f, Space.Self);
         }
 
         //Debug.Log(player.transform.localPosition);
@@ -79,6 +79,11 @@ public class GameManager : MonoBehaviour
             player.transform.parent = null;
             player.transform.localScale = new Vector3(1, 1, 1);
             curHat = null;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
         }
     }
 
