@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public AudioSource jump;
-    public AudioSource land;
-    public AudioSource carrot;
+    public AudioSource audioSource;
+    public AudioClip jump;
+    public AudioClip land;
+    public AudioClip carrot;
     public GameManager gm;
 
     public GameObject earL;
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("hat"))
         {
-            land.Play();
+            audioSource.PlayOneShot(land);
             gameObject.transform.parent = other.gameObject.transform;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -50,11 +51,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("speed"))
         {
-            carrot.Play();
+            audioSource.PlayOneShot(carrot);
             gm.SpeedUp();
             Destroy(other.gameObject);
         }
-        else if (other.gameObject.CompareTag("Finish"))
+        else if (other.gameObject.CompareTag("finish"))
         {
             gm.Finish();
         }

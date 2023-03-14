@@ -8,7 +8,7 @@ using System;
 public class Timer : MonoBehaviour
 {
     bool active = false;
-    float currentTime;
+    public float currentTime;
     public Text txt;
 
 

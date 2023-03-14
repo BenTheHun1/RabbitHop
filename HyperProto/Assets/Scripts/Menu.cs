@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Menu : MonoBehaviour
 {
     public static bool doHard;
+    public Text displayHighScore;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        TimeSpan time = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("record"));
+        displayHighScore.text = "High Score: " + time.ToString(@"mm\:ss\.ff");
     }
 
     // Update is called once per frame
