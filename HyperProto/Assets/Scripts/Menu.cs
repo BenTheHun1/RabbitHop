@@ -14,7 +14,10 @@ public class Menu : MonoBehaviour
     void Start()
     {
         TimeSpan time = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("record"));
-        displayHighScore.text = "High Score: " + time.ToString(@"mm\:ss\.ff");
+		if (time.TotalSeconds > 0)
+		{
+			displayHighScore.text = "High Score: " + time.ToString(@"mm\:ss\.ff");
+		}
     }
 
     // Update is called once per frame
