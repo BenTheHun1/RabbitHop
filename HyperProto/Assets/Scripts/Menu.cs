@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
 {
     public static bool doHard;
     public Text displayHighScore;
+	public Text displayVersionNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class Menu : MonoBehaviour
 		{
 			displayHighScore.text = "High Score: " + time.ToString(@"mm\:ss\.ff");
 		}
+		displayVersionNumber.text = Application.version;
     }
 
     // Update is called once per frame
