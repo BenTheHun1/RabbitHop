@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         }
 
         //Debug.Log(player.transform.localPosition);
-        if (Input.GetKeyDown(KeyCode.Mouse0) && portType == port.pc && Time.timeScale == 1)
+        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space)) && portType == port.pc && Time.timeScale == 1)
         {
             if (EventSystem.current.IsPointerOverGameObject())
             {

@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("hat"))
         {
             audioSource.PlayOneShot(land);
+			Debug.Log("hat");
             gameObject.transform.parent = other.gameObject.transform;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
