@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 
@@ -21,25 +22,34 @@ public class GameManager : MonoBehaviour
     public GameObject dead;
     public GameObject win;
     public GameObject SpeedIndicator;
-    public Text SpeedUpTimeIndicator;
+    public TextMeshProUGUI SpeedUpTimeIndicator;
     public float force;
     private port portType;
     public GameObject jumpButton;
-    public enum port { pc, mobile }
+	public GameObject jumpButton2;
+	public enum port { pc, mobile }
     public Timer timer;
+
+	public Slider progRabbit;
+	public Slider progMagician;
+	public Transform Goal;
+
+	public Vector3 startPos;
 
     // Start is called before the first frame update
     void Start()
     {
-		Application.targetFrameRate = 60;
-        pause.SetActive(false);
+		startPos = player.transform.position;
+		pause.SetActive(false);
         dead.SetActive(false);
         win.SetActive(false);
+		progMagician.gameObject.SetActive(false);
 
-        if (Application.platform == RuntimePlatform.Android)
+        if (SystemInfo.deviceType == DeviceType.Handheld)
         {
             portType = port.mobile;
-        }
+			Application.targetFrameRate = 60;
+		}
         else
         {
             portType = port.pc;
@@ -48,25 +58,35 @@ public class GameManager : MonoBehaviour
         if (portType != port.mobile)
         {
             jumpButton.SetActive(false);
-        }
+			jumpButton2.SetActive(false);
+		}
     }
 
     // Update is called once per frame
     void Update()
     {
+		if (Time.timeScale == 1 && player != null)
+		{
+			//Debug.Log(1f - (Vector3.Distance(Goal.position, player.transform.position) / Vector3.Distance(Goal.position, startPos)));
+			progRabbit.value = 1f - (Vector3.Distance(Goal.position, player.transform.position) / Vector3.Distance(Goal.position, startPos));
+			if (magician.transform.position.x > startPos.x)
+			{
+				progMagician.gameObject.SetActive(true);
+				progMagician.value = 1f - (Vector3.Distance(Goal.position, magician.transform.position) / Vector3.Distance(Goal.position, startPos));
+			}
+		}
+
         if (speeduptimer > 0) 
         {
             SpeedIndicator.SetActive(true);
             speeduptimer -= 1 * Time.deltaTime;
             SpeedUpTimeIndicator.text = speeduptimer.ToString("0");
             speedup = 2;
-            
         }
         else
         {
             SpeedIndicator.SetActive(false);
             speedup = 1;
-
         }
 
         if (curHat != null)
