@@ -1481,10 +1481,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cf2d60078fa20f9499d51235483b0526, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bc3366aafc2dc634cb0eade8eff6ee6e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.25
-  m_Pitch: 0.5
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2565,8 +2565,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -85.00003, y: 434.62}
-  m_SizeDelta: {x: -85, y: -434.62}
+  m_AnchoredPosition: {x: -91.25, y: 323.77}
+  m_SizeDelta: {x: -91.25, y: -323.77}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &385097513
 MonoBehaviour:
@@ -2846,7 +2846,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2860,7 +2860,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1280081388}
   m_FillRect: {fileID: 1886520901}
   m_HandleRect: {fileID: 1280081387}
@@ -3393,7 +3393,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553730662}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 15a858901a461cd4a9357948763f7ef7, type: 3}
@@ -4933,8 +4933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 753066402}
   jump: {fileID: 8300000, guid: 8c9863a6ae809e1428c02acd2723fece, type: 3}
-  land: {fileID: 8300000, guid: 79007fea6d79fac468ed84c7d6c52a67, type: 3}
-  carrot: {fileID: 8300000, guid: 14c4d11fb226ca745af9acb38bbca075, type: 3}
+  land: {fileID: 8300000, guid: 8f15b55d158032943acc2b400920423e, type: 3}
+  carrot: {fileID: 8300000, guid: e1665599d0453224a8fc4195c72c8ae5, type: 3}
   gm: {fileID: 212882083}
   earL: {fileID: 1930390268}
   earR: {fileID: 2034284424}
@@ -7334,7 +7334,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ce675c676eb94e14bbb781fd4248c7fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e16f25cfb226d349aabc6d4bc954641, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8556,7 +8556,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -8570,7 +8570,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1710826720}
   m_FillRect: {fileID: 1504451704}
   m_HandleRect: {fileID: 1710826719}
@@ -11169,14 +11169,14 @@ RectTransform:
   m_Children:
   - {fileID: 606621642}
   - {fileID: 385097512}
+  - {fileID: 480835772}
+  - {fileID: 1444079597}
   - {fileID: 1407838100}
   - {fileID: 1097713976}
   - {fileID: 837417370}
   - {fileID: 553730663}
   - {fileID: 1813376022}
   - {fileID: 1715057638}
-  - {fileID: 480835772}
-  - {fileID: 1444079597}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

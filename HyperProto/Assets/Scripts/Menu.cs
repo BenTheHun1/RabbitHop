@@ -7,37 +7,107 @@ using System;
 
 public class Menu : MonoBehaviour
 {
-    public static bool doHard;
     public Text displayHighScore;
 	public Text displayVersionNumber;
 
-    // Start is called before the first frame update
+	public GameObject Instructions;
+	public Text storyText;
+
+	public List<string> story;
+	public Animator animator;
+	public int storyStep;
+
+	public Button continueStory;
+	public Button backStory;
+
+	public AudioSource storyAudio;
+	public List<AudioClip> audioClips;
+
+
+	public Button quitGame;
     void Start()
     {
+		if (SystemInfo.deviceType == DeviceType.Desktop)
+		{
+			quitGame.gameObject.SetActive(true);
+		}
+		else
+		{
+			quitGame.gameObject.SetActive(false);
+		}
+			Instructions.SetActive(false);
+		storyStep = 1;
         TimeSpan time = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("record"));
 		if (time.TotalSeconds > 0)
 		{
 			displayHighScore.text = "High Score: " + time.ToString(@"mm\:ss\.ff");
 		}
-		displayVersionNumber.text = Application.version;
+		else
+		{
+			displayHighScore.text = "";
+		}
+			displayVersionNumber.text = Application.version;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame()
     {
-        
-    }
-
-    public void StartGame(bool Hard)
-    {
-        if (Hard)
-        {
-            doHard = Hard;
-        }
-        else
-        {
-            doHard = false;
-        }
         SceneManager.LoadScene("Main");
     }
+
+	public void QuitGame()
+	{
+		Application.Quit();
+	}
+
+	public void InstructionsToggle()
+	{
+		Instructions.SetActive(!Instructions.activeSelf);
+		if (Instructions.activeSelf == true)
+		{
+			storyStep = 0;
+			ContinueInstructions(true);
+		}
+	}
+
+	public void ContinueInstructions(bool isForward)
+	{
+		if (isForward)
+		{
+			storyStep++;
+		}
+		else
+		{
+			storyStep--;
+		}
+		
+		animator.SetInteger("step", storyStep);
+		storyText.text = story[storyStep];
+
+		if (audioClips[storyStep] != null)
+		{
+			storyAudio.PlayOneShot(audioClips[storyStep]);
+		}
+		else
+		{
+			storyAudio.Stop();
+		}
+
+		if (storyStep == 1)
+		{
+			backStory.gameObject.SetActive(false);
+		}
+		else
+		{
+			backStory.gameObject.SetActive(true);
+		}
+
+		if (storyStep == 7)
+		{
+			continueStory.gameObject.SetActive(false);
+		}
+		else
+		{
+			continueStory.gameObject.SetActive(true);
+		}
+	}
 }
