@@ -7131,7 +7131,7 @@ GameObject:
   - component: {fileID: 1230127120}
   - component: {fileID: 1230127119}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7189,7 +7189,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GAME OVER
+  m_Text: Caught!
 --- !u!222 &1230127120
 CanvasRenderer:
   m_ObjectHideFlags: 0
