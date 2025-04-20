@@ -27,7 +27,7 @@ public class Menu : MonoBehaviour
 	public Button quitGame;
     void Start()
     {
-		if (SystemInfo.deviceType == DeviceType.Desktop)
+		if (SystemInfo.deviceType == DeviceType.Desktop && Application.platform == RuntimePlatform.WindowsPlayer)
 		{
 			quitGame.gameObject.SetActive(true);
 		}
