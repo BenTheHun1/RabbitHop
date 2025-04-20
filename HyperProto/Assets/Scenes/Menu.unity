@@ -1363,9 +1363,9 @@ RectTransform:
   - {fileID: 522183493}
   m_Father: {fileID: 376846095}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 566.34796, y: -371.88388}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 480, y: 76.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &728522857
@@ -1395,7 +1395,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2072,7 +2072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1656300314
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2617,13 +2617,12 @@ MonoBehaviour:
   story:
   - 
   - On a peaceful day, the Rabbit was lounging around.
-  - Then, it was spotted by the evil Magician, Hector!
+  - Then, it was spotted by an evil Magician!
   - It was captured, stuffed into a cage, and taken away.
   - It was stuffed into and pulled out of hat after hat, to the delight of onlookers.
   - One day, it noticed an open door carelessly left open. Freedom!
-  - To escape, click or tap to shoot the Rabbit out of the Magic Hat. Get to the
-    Goal!
-  - Pick up a carrot to make the Hat spin faster, but be careful! It becomes harder
+  - To escape, click or tap to shoot the Rabbit out of Magic Hats. Get to the Goal!
+  - Pick up a carrot to make Hats spin faster, but be careful! It becomes harder
     to aim.
   animator: {fileID: 2142772833}
   storyStep: 1
@@ -2861,9 +2860,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 376846095}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 566.34796, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 480, y: 320}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!95 &2142772833
